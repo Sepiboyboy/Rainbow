@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 300" width="1280" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E1B3A"/>
+      <stop offset="1" stop-color="#2D2257"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF7A7A"/>
+      <stop offset=".35" stop-color="#FFC15E"/>
+      <stop offset=".65" stop-color="#7BD88F"/>
+      <stop offset="1" stop-color="#7AA7FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="300" rx="20" fill="url(#bg)"/>
+  <g fill="none" stroke-width="16" stroke-linecap="round" opacity=".9" transform="translate(1040 250)">
+    <path d="M-170 0 A170 170 0 0 1 170 0" stroke="#FF6B6B"/>
+    <path d="M-148 0 A148 148 0 0 1 148 0" stroke="#FFB347"/>
+    <path d="M-126 0 A126 126 0 0 1 126 0" stroke="#FFD93D"/>
+    <path d="M-104 0 A104 104 0 0 1 104 0" stroke="#6BCB77"/>
+    <path d="M-82 0 A82 82 0 0 1 82 0" stroke="#4D96FF"/>
+    <path d="M-60 0 A60 60 0 0 1 60 0" stroke="#9B5DE5"/>
+  </g>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="72" y="92" fill="#B9B4E0" font-size="20" font-weight="600" letter-spacing="4">PRODUCTION CASE STUDY</text>
+    <text x="70" y="160" fill="url(#title)" font-size="62" font-weight="800">Rainbow Playhouse</text>
+    <text x="72" y="208" fill="#E9E7F7" font-size="26" font-weight="400">Operations platform for an hourly childcare centre</text>
+    <text x="72" y="250" fill="#9C97C6" font-size="19">Bookings · Walk-ins · Staff rota · Cash desk · Analytics · Accounting</text>
+  </g>
+</svg>
