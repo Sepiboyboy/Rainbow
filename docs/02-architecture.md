@@ -93,4 +93,8 @@ app/
 
 ---
 
+The reasoning behind these structural choices, including the alternatives considered and the trade-offs accepted, is recorded in the [Architecture Decision Record](10-architecture-decisions.md).
+
+---
+
 [← Product Overview](01-product-overview.md) · [Next: Domain Model →](03-domain-model.md)

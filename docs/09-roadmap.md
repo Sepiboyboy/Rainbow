@@ -35,4 +35,4 @@ The rules that held through the project's history carry forward:
 
 ---
 
-[← Deployment & Operations](08-deployment-and-ops.md) · [Back to README](../README.md)
+[← Deployment & Operations](08-deployment-and-ops.md) · [Next: Architecture Decisions →](10-architecture-decisions.md)

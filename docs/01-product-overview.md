@@ -18,6 +18,8 @@ The centre sells **time**. A family buys a package (for example 30, 60, 90 or 12
 | The owner is not an accountant | Figures state their basis and period on screen ("money received", "this Jalali month", "last 30 days"). |
 | The centre operates on Iranian civil time | All date logic runs on **Asia/Tehran** and the **Jalali calendar**, independent of server or device clock. |
 
+**In production.** In its first 30 days live, the platform handled roughly 300 child sessions (about four in five of them walk-ins) and 411 payment transactions for 43 registered families, with the till operated through the system on 28 trading days. See [Business Impact](../README.md#business-impact).
+
 ## 1.2 Roles and Portals
 
 ```mermaid

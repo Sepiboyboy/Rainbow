@@ -22,17 +22,21 @@ The rota screen rendered the string correctly, since rendering requires no parsi
 
 **Result.** The coach became bookable and the whole class of silent failures was closed. A related rule followed: any value the server compares verbatim, such as a generated password, is **displayed in ASCII digits**.
 
+**Business impact.** Rostered staff time can now actually be sold. Before the fix, an afternoon shift could be paid for and still not be bookable.
+
 ---
 
 ## 6.2 One money model instead of five
 
-**Symptom.** The dashboard, analytics, day archive and till disagreed about the same day's income. In one case a day's headline showed about 54M toman while its own subtitle showed about 126M.
+**Symptom.** The dashboard, analytics, day archive and till disagreed about the same day's income. In one case a day's headline figure was less than half of the subtitle printed directly beneath it.
 
 **Root cause.** Each screen had its own revenue calculation. Some summed sessions **delivered** (accrual), others summed money **received** (cash). Wallet top-ups and the later spending of that credit were both counted, so the same toman appeared twice on two different days. One field name, `revenueToday`, meant different things on two endpoints.
 
 **Fix.** A single `moneyFor(from, to)` function now defines every financial figure on a **cash basis**: a top-up is counted when it arrives, and spending the credit later adds nothing. Every financial endpoint reads it. Fields with ambiguous names were removed, not redefined. A regression test walks seven days and asserts that headline = sum of ledger rows = sales + top-ups = the analytics trend.
 
 **Result.** Every screen shows the same figure for the same period, and each figure states its basis.
+
+**Business impact.** The owner can reconcile the till against the dashboard at close of day without a spreadsheet, and month-end figures match the sum of their days.
 
 ---
 
@@ -44,7 +48,9 @@ The rota screen rendered the string correctly, since rendering requires no parsi
 
 **Fix.** The shared `revenueSessions()` series now carries coach, phone, parent name and duration for guests, so each consumer's fix was one line. Customer identity was unified on the **normalised phone number**. Guards prevent double-counting: walk-in spend comes from the visit, never from its payment row. A single `presentCount()` drives every occupancy figure.
 
-**Result.** The same coach now reads **70 sessions, about 28.8M toman, 65% utilisation**. Busy-hour charts now describe all traffic, not about 3% of it.
+**Result.** The same coach now reads **70 sessions and 65% utilisation**. Busy-hour charts now describe all traffic, not about 3% of it.
+
+**Business impact.** The owner's revenue, staffing and customer figures now include the ~97% of visits that were previously missing. That makes them usable for pricing and rota decisions for the first time.
 
 ---
 
@@ -58,6 +64,8 @@ The rota screen rendered the string correctly, since rendering requires no parsi
 
 **Result.** Correct dates, correct buckets and correct day boundaries everywhere. The server rejects past slots even if a client offers them.
 
+**Business impact.** Customers can no longer buy a slot that has already passed, and the owner's daily and monthly reports follow the calendar the business actually runs on.
+
 ---
 
 ## 6.5 Persona leak in shared navigation
@@ -67,6 +75,8 @@ The rota screen rendered the string correctly, since rendering requires no parsi
 **Root cause.** Components such as the coach profile are mounted by several personas but navigated to a hard-coded parent screen id. A second instance of the same pattern sent supervisors back to a manager-only screen.
 
 **Fix.** Shared components now navigate only through `nav.back()` or a role-derived destination (`messagesScreenFor(role)`). This was recorded as a codebase rule covering every multi-persona component.
+
+**Business impact.** Staff can no longer land in a customer-facing view mid-task, which removed a source of confusion and a potential privacy boundary violation.
 
 ---
 
@@ -78,6 +88,8 @@ The rota screen rendered the string correctly, since rendering requires no parsi
 
 **Fix.** The `Sheet` primitive now renders through a React portal into the screen root, as a true sibling of the tab bar. One change fixed all nine sheets. Rule: overlays never rely on `z-index` from inside an animated container.
 
+**Business impact.** Core onboarding tasks (registering a child, adding a coach) work again on the device staff and parents actually use.
+
 ---
 
 ## 6.7 A staff action filed under the wrong family
@@ -87,6 +99,8 @@ The rota screen rendered the string correctly, since rendering requires no parsi
 **Root cause.** `POST /bookings` set `family = req.user.id`. That is correct when parents book for themselves, which hid the bug until staff acted on someone else's behalf.
 
 **Fix.** The family is now derived from the **child**. The same audit found walk-in prices accepted from the client. Prices now come from server pricing, and `amount` was removed from the writable fields.
+
+**Business impact.** Desk sales are credited to the right family's history and loyalty record, and a modified client can no longer set its own price.
 
 ---
 
@@ -99,6 +113,8 @@ The rota screen rendered the string correctly, since rendering requires no parsi
 **Fix.** Callers pass their earliest required instant, and multi-window callers pre-load once and slice in memory. Compound indexes were added to match the query shapes, and lifetime questions moved to `$group` aggregates.
 
 **Result.** Median response times after the change: **dashboard 7 ms, analytics 8 ms, revenue trend 2 ms**.
+
+**Business impact.** Reporting cost is now bounded by the reporting window instead of by the business's total history, so dashboards stay fast as the centre grows.
 
 ---
 
