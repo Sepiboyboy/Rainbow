@@ -42,20 +42,20 @@ The platform went live in **August 2026** and runs the centre's daily operations
 
 ## Business Impact
 
-<sub>Aggregate production counts from the **first 30 days of operation** (19 Aug – 18 Sep 2026).</sub>
+<sub>Aggregate production counts **since go-live** (19 Aug 2026), taken from a production backup on 25 Oct 2026.</sub>
 
 <table>
 <tr>
-<td align="center" width="25%"><h2>~300</h2>child sessions managed</td>
-<td align="center" width="25%"><h2>411</h2>payment transactions settled</td>
-<td align="center" width="25%"><h2>43</h2>families onboarded</td>
-<td align="center" width="25%"><h2>28</h2>trading days on the live till</td>
+<td align="center" width="25%"><h2>705</h2>child sessions managed</td>
+<td align="center" width="25%"><h2>914</h2>payment transactions settled</td>
+<td align="center" width="25%"><h2>57</h2>registered families</td>
+<td align="center" width="25%"><h2>52</h2>trading days run on the system</td>
 </tr>
 <tr>
-<td align="center"><h2>80%</h2>of visits were walk-ins, now fully tracked</td>
-<td align="center"><h2>7</h2>coaches scheduled through the rota</td>
-<td align="center"><h2>22</h2>staff tasks assigned against shifts</td>
-<td align="center"><h2>5.0 / 5</h2>average session rating (16 reviews)</td>
+<td align="center"><h2>85%</h2>of visits were walk-ins, now fully tracked</td>
+<td align="center"><h2>261</h2>walk-in families identified by phone</td>
+<td align="center"><h2>30%</h2>of walk-in families came back</td>
+<td align="center"><h2>5.0 / 5</h2>average session rating (44 reviews)</td>
 </tr>
 </table>
 
@@ -66,7 +66,7 @@ The platform went live in **August 2026** and runs the centre's daily operations
 | **Walk-in visibility** | Walk-ins, the large majority of visits, were not tracked | Every walk-in counts in revenue, occupancy, utilisation and customer history |
 | **Pricing** | A fixed price list applied by hand | Owner-configured packages, loyalty tiers and stacked discounts, priced on the server |
 | **Reporting** | Spreadsheets, rebuilt by hand | Live dashboard, analytics, day-by-day archive and a monthly Jalali P&L, all from one money model |
-| **Staff cost** | Calculated outside any system | Pay profiles, monthly payroll runs with approval, and salaries posted to expenses automatically |
+| **Staff cost** | Calculated outside any system | Built-in pay profiles and monthly payroll runs with approval; approved salaries post to expenses automatically |
 | **Access control** | Informal | Least privilege: till access exists only during a rostered till shift |
 
 <br>
